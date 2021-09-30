@@ -1,0 +1,22 @@
+/* Add here all your css styles (customizations) */
+.u-btn-primary-aeela {
+  color: #fff;
+  background-color: #98012e; }
+
+.u-btn-primary-aeela:hover, .u-btn-primary-aeela.active {
+  border-color: #a10f2b;
+  background-color: #a10f2b; }
+  
+.g-color-primary-aeela {
+  color: #98012e !important; }
+
+
+.u-btn-primary-aeela:hover, .u-btn-primary-aeela:focus, .u-btn-primary.active {
+  color: #fff; }
+
+.u-btn-primary.g-btn-hover-reset:hover, .u-btn-primary.g-btn-hover-reset.active {
+  background-color: #72c02c;
+  border-color: #72c02c; }
+  
+.g-brd-primary-aeela-bottom {
+  border-bottom-color: #98012e !important; }  
