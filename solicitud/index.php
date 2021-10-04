@@ -1,142 +1,128 @@
 <!-- set bodyTheme = "u-card-v1" -->
-<?php
 
-?>
 <!DOCTYPE html>
 <html lang="en" ng-app="ListaOrden">
 
-<head>
-  <!-- Title -->
-  <title>Solicitud de nuevo estudiante</title>
+	<head>
+		<!-- Title -->
+		<title>Solicitud de nuevo estudiante</title>
 
-  <!-- Required Meta Tags Always Come First -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- Required Meta Tags Always Come First -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <?php require("../basics.php")?>
-</head>
+		<?php require("../basics.php")?>
+	</head>
 
 <body>
-  <?php require("../header.php")?>
+	<?php require("../header.php")?>
   
+	<main class="container-fluid px-0 g-mt-0">
+		<div class="row no-gutters g-pos-rel g-overflow-x-hidden" >
+			<div class="col g-ml-45 g-ml-0--lg g-pb-65--md" id="ListaContainer" ng-controller="ListaCtrl" ng-cloak>
+				<?php require("../filtros.php")?>
+				<!-- Breadcrumbs -->
+				<div class="container g-py-50">
+					<ul class="u-list-inline g-font-weight-500 mb-2">
+						<li class="list-inline-item g-mr-5">
+							<a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">Inicio</a>
+							<i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+						</li>
+						<li class="list-inline-item g-mr-5">
+							<a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">Solicitudes</a>
+							<i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
+						</li>
+							<li class="list-inline-item g-color-primary">
+							<span>Nueva Solicitud </span>
+						</li>
+					</ul>
+				</div>
+				<!-- End Breadcrumbs -->
+				<!--div class="g-pa-20"-->
+					<div class="row g-brd-gray-light-v7">	
+						<div class="container">
+							<h2> Solicitud de nuevo estudiante</h2>
+							<form class=" g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" name='formNew' id='formNew'>
+								<h4>Complete los datos solicitados</h4>
+								<div class="form-group row g-mb-25">
+									<label for="name" class="col-2 col-form-label">Nombre</label>
+									<div class="col-5">
+										<input class="form-control rounded-0 form-control-md" type="text" placeholder="nombre" id="nombre" ng-model='data.name' required="">
+									</div>
+								</div>
+								<div class="form-group row g-mb-25">
+									<label for="apellido" class="col-2 col-form-label">Apellido</label>
+									<div class="col-5">
+										<input class="form-control rounded-0 form-control-md" type="search" placeholder="apellido" id="apellido" ng-model="data.apellido" required="">
+									</div>
+								</div>
+								<div class="form-group row g-mb-25">
+									<label for="sexo" class="col-2 col-form-label">Sexo</label>
+									<div class="col-5">
+										<label class="form-check-inline u-check g-pl-25 ml-0 g-mr-25">
+											<input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" value="female" name="radioGenero" ng-model='data.sexo' type="radio" checked="">
+											<div class="u-check-icon-radio-v4 g-absolute-centered--y g-left-0 g-width-18 g-height-18">
+												<i class="g-absolute-centered d-block g-width-10 g-height-10 g-bg-primary--checked"></i>
+											</div>
+											Femenino
+										</label>
 
-
-  <main class="container-fluid px-0 ">
-    <div class="row no-gutters g-pos-rel g-overflow-x-hidden" >
-     
-
-      <div class="col g-ml-45 g-ml-0--lg g-pb-65--md" id="ListaContainer" ng-controller="ListaCtrl" ng-cloak>
-       <!-- Promo Block -->
-      <div class="g-bg-white g-bg-pos-top-center g-bg-img-hero  g-py-120" >
-        <div class="container g-pos-rel g-z-index-1">
-          <div class="text-center g-mb-35">
-            <h1 class="h2 g-color-white mb-0">Ingrese los datos del nuevo estudiante</h1>
-          </div>
-
-          <!-- Input Group -->
-          <form id="filtersForm">
-            <div class="row justify-content-center">
-				<div class="form-group g-mb-20">
-                  <label class="g-mb-10">Nombre</label>
-                  <div class="input-group g-brd-primary--focus">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text rounded-0 g-bg-white g-color-gray-light-v1" ><i class="icon-user"></i></span>
-                    </div>
-                    <input class="form-control form-control-md border-left-0 border-right-0 rounded-0 px-0" type="text" placeholder="Nombre del estudiante" ng-model="new.name">
-                    
-                  </div>
-                </div>
-              <div class="col-sm-4 col-lg-3 g-mb-30">
-				<label class="g-color-white mb-0" ng-show="tipo=='PERSONAJE'">Selecciona una casa</label>
-                <!-- Button Group -->
-                <select class="js-custom-select w-100 u-select-v1 g-brd-gray-light-v3 g-color-black g-color-primary--hover g-bg-white g-py-12 " 
-                        data-placeholder="SELECCIONE UNA CASA"
-                        data-open-icon="fa fa-angle-down"
-                        data-close-icon="fa fa-angle-up"
-						ng-model="filters.CASA" allow-single-deselect="true"
-						ng-show="tipo=='PERSONAJE'"
-						ng-options="tx as tx for (co,tx) in options.casa"
-						ng-change='buscarPersonaje()'>
-						<option>Seleccione una casa </option>
-                  
-                </select>
-                <!-- End Button Group -->
-              </div>
-
-             
-
-              
-            </div>
-          </form>
-          <!-- End Input Group -->
-        </div>
-      </div>
-      <!-- End Promo Block -->
-		<!-- Breadcrumbs -->
-      <div class="container g-py-50">
-        <ul class="u-list-inline g-font-weight-500 mb-2">
-          <li class="list-inline-item g-mr-5">
-            <a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">Inicio</a>
-            <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-          </li>
-          <li class="list-inline-item g-mr-5">
-            <a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">Solicitudes</a>
-            <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
-          </li>
-          <li class="list-inline-item g-color-primary">
-            <span>Lista Solicitudes</span>
-          </li>
-        </ul>
-        
-      </div>
-      <!-- End Breadcrumbs -->
-	 
-		<div class="g-pa-20">
-          <div class="row g-brd-gray-light-v7">	
-			
-           
-			<!-- Agents -->
-      <div class="container">
-		
-		  <!-- Tabla de datos -->
-              <div class="card g-brd-gray-light-v7 g-mb-30">
-                
-
-                <div class="tOrdenes" >
-					<table id="ListaOrdenes" class="display w-100">
-						<thead>
-						  <tr>
-							<th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none g-pl-20">Name</th>
-							<!--th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Patronus</th-->
-							<th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Age</th>
-							<!--th class="g-font-weight-300 g-color-gray-dark-v6 g-brd-top-none">Image</th-->
-							
-						  </tr>
-						</thead>
-						
-					</table>
-                </div>
-
-                
-              </div>
-              <!-- End tabla de datos -->
-      </div>
-      <!-- End Agents -->
-          
-
-            
-
-            
-           
-            
-          </div>
-        </div>
-		 <?php require("../footer.php")?>
+										<label class="form-check-inline u-check g-pl-25 ml-0 g-mr-25">
+											<input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" value="male" name="radioGenero" ng-model='data.sexo'  type="radio">
+											<div class="u-check-icon-radio-v4 g-absolute-centered--y g-left-0 g-width-18 g-height-18">
+												<i class="g-absolute-centered d-block g-width-10 g-height-10 g-bg-primary--checked"></i>
+											</div>
+											Masculino
+										</label>
+									</div>
+								 
+								</div>		  
+								<div class="form-group row g-mb-25">
+									<label for="nacimiento" class="col-2 col-form-label">Fecha de nacimiento</label>
+									<div class="col-5">
+										<input class="form-control rounded-0 form-control-md" type="date" placeholder="2011-08-19" id="nacimiento" ng-model='data.nacimiento' required="">
+									</div>
+								</div>
+								
+								<div class="form-group row g-mb-25">
+									<label class="col-2 col-form-label" >Selecciona una casa</label>
+									<div class="col-5">
+										<select class="js-custom-select w-100 u-select-v1 g-brd-gray-light-v3 g-color-black g-color-primary--hover g-bg-white g-py-12 " 
+												data-placeholder="SELECCIONE UNA CASA"
+												data-open-icon="fa fa-angle-down"
+												data-close-icon="fa fa-angle-up"
+												ng-model="data.CASA" allow-single-deselect="true"
+												required=""
+												ng-options="tx as tx for (co,tx) in options.casa"
+												>
+												
+										  
+										</select>
+									</div>
+								</div>
+								<div class="form-group row g-mb-25">
+									<button type="submit" class="btn btn-lg u-btn-primary g-mr-10 g-mb-15" ng-click="addSolicitud()">
+										<i class="fa fa-database g-mr-5"></i>
+										Guardar
+									</button>
+									<button type="button" class="btn btn-lg u-btn-primary g-mr-10 g-mb-15" ng-click="clear()">
+										<i class="fa fa-eraser g-mr-5"></i>
+										Resetear
+									</button>
+									
+								</div>
+								
+								
+							</form>
+						</div>
+					</div>
+				<!--/div-->
+				<?php require("../footer.php")?>
        
-      </div>
-    </div>
-  </main>
+			</div>
+		</div>
+	</main>
 
  <script src="javascript.js"></script> 
   <!-- JS Plugins Init. -->
