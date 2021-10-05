@@ -25,9 +25,11 @@ var ListaOrden = angular.module('ListaOrden', []);
 			arr.push(newDatos);
 			localStorage.setItem('newDatos', JSON.stringify(arr));
 		}
-	
+		$scope.data=[];
+		alert("Solicitud guardada exitosamente");
 		console.log(localStorage.getItem('newDatos'));
 	};
+	
 	
 	$scope.addSolicitudddd = function() {
 		var lista = JSON.parse(localStorage.newDatos);

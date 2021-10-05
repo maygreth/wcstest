@@ -42,7 +42,9 @@
 				<!--div class="g-pa-20"-->
 					<div class="row g-brd-gray-light-v7">	
 						<div class="container">
-							<h2> Solicitud de nuevo estudiante</h2>
+							<div class="text-center text-uppercase u-heading-v6-2 g-mb-20 g-pt-40">
+								<h2 class="h3 u-heading-v6__title g-brd-primary">Solicitud de nuevo estudiante</h2>
+							</div>
 							<form class=" g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30" name='formNew' id='formNew'>
 								<h4>Complete los datos solicitados</h4>
 								<div class="form-group row g-mb-25">
@@ -101,8 +103,8 @@
 										</select>
 									</div>
 								</div>
-								<div class="form-group row g-mb-25">
-									<button type="submit" class="btn btn-lg u-btn-primary g-mr-10 g-mb-15" ng-click="addSolicitud()">
+								<div class="row g-mb-25 d-flex align-items-end  ">
+									<button type="submit" class="btn btn-lg u-btn-primary g-mr-10 g-mb-15 " ng-click="addSolicitud()">
 										<i class="fa fa-database g-mr-5"></i>
 										Guardar
 									</button>
