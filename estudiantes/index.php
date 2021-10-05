@@ -35,15 +35,26 @@
 							<i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
 						</li>
 						<li class="list-inline-item g-color-primary">
-							<span>List View</span>
+							<span>Lista de Estudiantes</span>
 						</li>
 					</ul>
-					<h2 class="h2 mb-0">Estudiantes </h2>
+					
 				</div>
 			<!-- End Breadcrumbs -->
 			<!-- Filters -->
 			<div class="container g-pb-20">
-				<div class="row d-flex align-items-center">
+				<div class="text-center text-uppercase u-heading-v6-2 g-mb-20 g-pt-40">
+					<h2 class="h3 u-heading-v6__title g-brd-primary">Lista de estudiantes</h2>
+				</div>
+				<div class="row ">
+					<div class="col-md-6 g-mb-30 pull-right">
+						<div class="col-md-6 d-flex align-items-lg-end">
+							<a class="btn btn-block u-btn-primary g-color-white g-bg-primary-dark-v1--hover g-font-weight-600 rounded-0 g-px-18 g-py-15" href="../solicitud" >
+								<i class="g-color-white mr-1 icon-hotel-restaurant-002 u-line-icon-pro"></i> 
+								Nueva Solicitud
+							</a>	
+						</div>
+					</div>
 					<div class="col-md-6 g-mb-30">
 						<div class="d-flex align-items-center">
 							<h3 class="h6 g-font-weight-600 mr-4 mb-0">Visualizar resultados en:</h3>
@@ -60,12 +71,7 @@
 						</div>
 					</div>
 
-					<div class="col-md-2 g-mb-30">
-						<a class="btn btn-block u-btn-primary g-color-white g-bg-primary-dark-v1--hover g-font-weight-600 rounded-0 g-px-18 g-py-15" href="#" >
-							<i class="g-color-white mr-1 icon-hotel-restaurant-002 u-line-icon-pro"></i> 
-							Nueva Solicitud
-						</a>	
-					</div>
+					
 				</div>
 			</div>
 			<!-- End Filters -->

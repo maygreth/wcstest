@@ -14,8 +14,9 @@ var ListaEstudiante = angular.module('ListaEstudiante', []);
 	$( ".btn_estudiante" ).addClass( "active" );
 	$( ".btn_personaje" ).removeClass( "active" );
 	$( ".btn_profesor" ).removeClass( "active" );
+	$( ".btn_solicitudes" ).removeClass( "active" );
 	$scope.options.casa = ["slytherin", "gryffindor", "ravenclaw" , "hufflepuff"];
-	console.log('voy a buscar los filtros', $scope.options); 
+	
 	
 	$scope.cambiarView = function (valor) {
 		console.log('cambiando a' , valor);
@@ -66,7 +67,7 @@ var ListaEstudiante = angular.module('ListaEstudiante', []);
 				$scope.listaData.push(arrayData);
 			});
 				
-			console.log('vengo 2',$scope.listaData); 
+
 			$scope.$applyAsync();
 			if($scope.view=='TABLA'){
 				jQEstudianteTable.api().clear().rows.add($scope.listaData).draw();
