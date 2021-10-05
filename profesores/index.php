@@ -40,14 +40,17 @@
             <i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
           </li>
           <li class="list-inline-item g-color-primary">
-            <span>List View</span>
+            <span>Lista de Profesores</span>
           </li>
         </ul>
-        <h2 class="h2 mb-0">Profesores </h2>
+        
       </div>
       <!-- End Breadcrumbs -->
 	  <!-- Filters -->
       <div class="container g-pb-20">
+		<div class="text-center text-uppercase u-heading-v6-2 g-mb-20 g-pt-40">
+					<h2 class="h3 u-heading-v6__title g-brd-primary">Lista de profesores</h2>
+				</div>
         <div class="row d-flex align-items-center">
           <div class="col-md-6 g-mb-30">
             <div class="d-flex align-items-center">

@@ -1,15 +1,4 @@
-/* $(document).on('click', '#btnDetalle' , function(){
-	var href = this.href;
-    // Don't follow the link
-	
-	tosearch = $(this).data("id");
-	
-	console.log('tosearch ' + tosearch);
-    event.preventDefault();
-	// llamo el webservice para actualizar
-	location.href='../orden/?id='+tosearch;
-	
-}); */
+
 var ListaOrden = angular.module('ListaOrden', []);
 
 // Define the `RegistroCtrl` controller on the `ListaOrden` module
@@ -24,6 +13,7 @@ var ListaOrden = angular.module('ListaOrden', []);
 	$( ".listView" ).addClass( "active" );
 	$( ".btn_profesor" ).addClass( "active" );
 	$( ".btn_personaje" ).removeClass( "active" );
+	$( ".btn_solicitudes" ).removeClass( "active" );
 	$( ".btn_estudiante" ).removeClass( "active" );
 	$scope.options.casa = ["slytherin", "gryffindor", "ravenclaw" , "hufflepuff"];
 	console.log('voy a buscar los filtros', $scope.options); 
@@ -110,32 +100,15 @@ let jQSolicitudesTable = $('#ListaOrdenes').dataTable({
 					"infoEmpty": "No hay registros disponibles",
 					"infoFiltered": "(filtered from _MAX_ total records)"
 				},
-				/* buttons: [ {
-					extend: 'excelHtml5',
-					text: '<i class="fa fa-file-excel-o margin-right-5"></i> Exportar',
-					title: 'Export - Orodenes',
-					className: 'btn-light',
-					init: function(api, node, config) {
-						$(node).removeClass('btn-secondary')
-					}
-				} ], */
-				//info: true,
+				
 				columns: [
 					{
 						data: 'name'
-						/* render: function(d, type, row) {
-							lalupa = '<a href="../orden/?id='+ row.OrdenId +'"  id="btnDetalle"  data-toggle="tooltip" title="Ver detalle de la orden">'+ row.OrdenId +'</a>';
-							firma='';
-							
-							return '<div class="tableControls text-center">'+ lalupa + firma +'</div>';
-						} */
+						
 					},
 					
 					{
-						data: 'patronus' /*render: $.fn.dataTable.render.moment( 'YYYY-MM-DD HH:mm:ss', 'DD/MM/YYYY', 'es' )*/
-						/* render: function (data, type, row) {
-							return (moment(data).format("DD/MM/YYYY"));
-						} */
+						data: 'patronus' 
 					},
 					{
 						data: 'age'
@@ -152,14 +125,7 @@ let jQSolicitudesTable = $('#ListaOrdenes').dataTable({
 					
 
 				],
-				//order: [/*[ '2', "desc" ],*/ ['1', "desc"]],
-				/* rowCallback: function (row, data) {
-					$('td:eq(0)', row).addClass('text-center');
-					$('td:eq(5)', row).addClass('text-center');
-					$('td:eq(6)', row).addClass('text-center');
-					
-					$('div.d-flex', row).addClass('justify-content-center');
-				} */
+				
 			});
 	$scope.buscarProfesores();
   
