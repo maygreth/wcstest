@@ -35,15 +35,18 @@
 							<a class="u-link-v5 g-color-gray-dark-v5 g-color-main--hover" href="#">Personajes</a>
 							<i class="g-color-gray-light-v2 g-ml-5 fa fa-angle-right"></i>
 						</li>
-						<li class="list-inline-item g-color-primary">
-							<span>List View</span>
+						<li class="list-inline-item g-color-primary" ng-hide='filters.CASA==""|| !filters.CASA'>
+							<span>Lista de personajes de la casa: {{filters.CASA}}</span>
 						</li>
 					</ul>
-					<h2 class="h2 mb-0">Personajes - {{filters.CASA}}</h2>
+
 				 </div>
 				<!-- End Breadcrumbs -->
 				<!-- Filters -->
 				<div class="container g-pb-20">
+					<div class="text-center text-uppercase u-heading-v6-2 g-mb-20 g-pt-40">
+						<h2 class="h3 u-heading-v6__title g-brd-primary">Lista de personajes</h2>
+					</div>
 					<div class="row d-flex align-items-center">
 						<div class="col-md-6 g-mb-30">
 							<div class="d-flex align-items-center">
